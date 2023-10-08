@@ -152,7 +152,7 @@ async def process_command_cancel(message: Message):
         user[message.from_user.id]['end_number'] = 100
         user[message.from_user.id]['result'] = None
         user[message.from_user.id]['lie'] = 0
-        await message.answer(LEXICON_RU['/cancel'], reply_markup=keyboard_1)
+        await message.answer(LEXICON_RU['set_cancel'], reply_markup=keyboard_1)
     else:
         await message.answer('Вы ещё не начали игру, чтобы сдаваться.\n'
                              'Нажмите /start, чтобы игра запустилась.\n\n'
@@ -184,12 +184,14 @@ async def process_command_refuse(message: Message):
 
 @rt.message(Command(commands='rules'))
 async def process_command_rules(message: Message):
-    await message.answer(LEXICON_RU['/rules'])
+    await message.answer(LEXICON_RU['set_rules'])
 
 
 @rt.message(Command(commands='help'))
 async def process_command_help(message: Message):
-    await message.answer(LEXICON_RU['/help'])
+    answer = ''.join([f'{com} - {desc}' for com,
+                     desc in LEXICON_RU['/help'].items()])
+    await message.answer('Cписок команд:\n' + answer)
 
 
 @rt.message(Command(commands='owner'))
