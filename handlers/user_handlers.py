@@ -4,17 +4,14 @@ from lexicon.lexicon import LEXICON_RU
 from aiogram import Router, F
 from keyboards.keyboards import *
 import time
+from services.services import find_number
+
 
 rt = Router()
 
 ATTEMPTS = 7
 
 user = {}
-
-
-def find_number(start_num, end_num):
-    start_num = (start_num + end_num) // 2
-    return start_num
 
 
 @rt.message(CommandStart())
