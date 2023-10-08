@@ -2,6 +2,7 @@ from aiogram.types import Message, KeyboardButton, ReplyKeyboardMarkup, ReplyKey
 from aiogram.filters import Command, CommandStart
 from lexicon.lexicon import LEXICON_RU
 from aiogram import Router, F
+from keyboards.keyboards import *
 import time
 
 rt = Router()
@@ -9,21 +10,6 @@ rt = Router()
 ATTEMPTS = 7
 
 user = {}
-
-button_1 = KeyboardButton(text='⬆ Больше')
-button_2 = KeyboardButton(text='Меньше ⬇')
-button_3 = KeyboardButton(text='Хочу играть')
-button_3_1 = KeyboardButton(text='Играть ещё')
-button_4 = KeyboardButton(text='🎉 Угадал 🎉')
-button_5 = KeyboardButton(text='Нет')
-
-keyboard_1 = ReplyKeyboardMarkup(keyboard=[[button_3]], resize_keyboard=True)
-keyboard_1_1 = ReplyKeyboardMarkup(
-    keyboard=[[button_3_1]], resize_keyboard=True)
-keyboard_2 = ReplyKeyboardMarkup(
-    keyboard=[[button_1, button_2], [button_4]], resize_keyboard=True)
-keyboard_3 = ReplyKeyboardMarkup(
-    keyboard=[[button_4], [button_5]], resize_keyboard=True)
 
 
 def find_number(start_num, end_num):
