@@ -193,7 +193,7 @@ async def process_command_help(message: Message):
 
 @rt.message(Command(commands='owner'))
 async def process_command_owner(message: Message):
-    await message.answer('Создатель игры - самый-самый Никитка.')
+    await message.answer('Создатель игры - самый-самый Никитка.', reply_markup=keyboard_4)
 
 
 @rt.message()
